@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LLM Brand Study</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <h2 id="prompt"></h2>
+
+        <button id="generateBtn" class="generate-btn">
+            <span class="btn-text">Generate Responses</span>
+            <span class="btn-icon">➜</span>
+        </button>
+
+        <div id="loading" class="hidden">Generating responses...</div>
+
+        <div class="answer-wrapper" data-model="A">
+          <div class="model-label" data-model-label></div>
+  <div class="answer-card"></div>
+</div>
+
+<div class="answer-wrapper" data-model="B">
+  <div class="model-label" data-model-label></div>
+  <div class="answer-card"></div>
+</div>
+
+<div class="answer-wrapper" data-model="C">
+  <div class="model-label" data-model-label></div>
+  <div class="answer-card"></div>
+</div>
+
+<div class="answer-wrapper" data-model="D">
+  <div class="model-label" data-model-label></div>
+  <div class="answer-card"></div>
+</div>
+
+
+        <!-- NEW: Instruction that appears only after responses are generated -->
+        <p id="selectionInstruction" class="instruction-note hidden">
+          Please select your <strong>preferred response</strong>, then proceed to the
+          <strong>next question</strong>.
+        </p>
+
+
+        <button id="nextBtn" class="btn hidden">Next Question</button>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
