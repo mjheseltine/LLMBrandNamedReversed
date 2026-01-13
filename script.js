@@ -3,7 +3,15 @@ let selectedModel = null;
 
 const NEXT_DELAY_MS = 600;
 
-// Build reversed question order:
+// Model display names (VISIBLE to participants)
+const MODEL_NAMES = {
+  A: "Arya AI",
+  B: "Grok",
+  C: "GPT",
+  D: "Claude"
+};
+
+// Reversed question order:
 // Questions 5–8 first, then 1–4
 const ORDERED_DATA = [
   ...window.LLM_DATA.slice(4, 8),
@@ -32,15 +40,15 @@ function loadRound() {
   instructionEl.classList.add("hidden");
 
   selectedModel = null;
-
-  // Re-enable Generate button
   generateBtn.disabled = false;
 
-  // Load answer text
+  // Populate answers and model names
   document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
     const model = wrapper.dataset.model;
     const card = wrapper.querySelector(".answer-card");
+    const label = wrapper.querySelector("[data-model-label]");
 
+    label.textContent = MODEL_NAMES[model];
     card.textContent = q.answers[model];
     card.classList.remove("selected");
   });
@@ -62,6 +70,7 @@ function sendChoiceToQualtrics(model) {
       type: "choiceMade",
       fieldName: `choice_round_${round + 1}`,
       value: model,
+      modelName: MODEL_NAMES[model],
       timestamp: timestamp()
     },
     "*"
@@ -109,7 +118,6 @@ document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
       .classList.add("selected");
 
     selectedModel = model;
-
     sendChoiceToQualtrics(selectedModel);
 
     setTimeout(() => {
@@ -124,6 +132,7 @@ nextBtn.addEventListener("click", () => {
       type: "next_clicked",
       round: round + 1,
       selectedModel,
+      modelName: MODEL_NAMES[selectedModel],
       timestamp: timestamp()
     },
     "*"
@@ -149,4 +158,5 @@ nextBtn.addEventListener("click", () => {
 });
 
 // Initialize
+console.log("Condition: NAMED MODELS, POLITICAL LAST");
 loadRound();
