@@ -1,0 +1,139 @@
+body {
+    font-family: Inter, Arial, sans-serif;
+    background: #eef1f6;
+    margin: 0;
+    padding: 20px;
+}
+
+#app {
+    max-width: 780px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #1f6feb;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+    background: #2559c7;
+    transform: translateY(-1px);
+}
+
+/* --- Improved Generate Responses Button --- */
+.generate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1f6feb, #1859c9);
+    color: white;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(31, 111, 235, 0.25);
+    transition: all 0.15s ease;
+}
+
+.generate-btn .btn-icon {
+    font-size: 18px;
+    transition: transform 0.2s ease;
+}
+
+.generate-btn:hover {
+    background: linear-gradient(135deg, #1a5ecf, #1447a1);
+    box-shadow: 0 6px 14px rgba(31, 111, 235, 0.35);
+}
+
+.generate-btn:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+.generate-btn:active {
+    transform: scale(0.97);
+}
+
+
+.hidden {
+    display: none;
+}
+
+#loading {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #333;
+    animation: fadeIn 0.4s ease;
+}
+
+.answer-wrapper {
+    padding: 15px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: #f8f9fc;
+    cursor: pointer;
+    border: 1px solid #e2e4ea;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.answer-wrapper:hover {
+    background: #eef3ff;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+.answer-card {
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.answer-card.selected {
+    border-left: 4px solid #1f6feb;
+    padding-left: 12px;
+}
+
+.instruction-note {
+    margin: 25px auto 0 auto;
+    padding: 14px 20px;
+    max-width: 600px;
+    text-align: center;
+
+    background: #eaf2ff;                 /* lighter blue highlight */
+    border: 1px solid #bcd3ff;           /* soft border */
+    border-radius: 10px;
+
+    color: #1a3f8b;                      /* deeper readable blue */
+    font-size: 15px;
+    font-weight: 500;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+
+.model-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14.5px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
