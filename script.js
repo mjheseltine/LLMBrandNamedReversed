@@ -5,7 +5,7 @@ const NEXT_DELAY_MS = 600;
 
 // Model display names (VISIBLE to participants)
 const MODEL_NAMES = {
-  A: "Arya AI",
+  A: "Gab AI",
   B: "Grok",
   C: "GPT",
   D: "Claude"
