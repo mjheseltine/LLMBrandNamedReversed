@@ -1,55 +1,51 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LLM Brand Study</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LLM Brand Study</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div id="app">
-        <h2 id="prompt"></h2>
+  <div id="app">
+    <h2 id="prompt"></h2>
 
-        <button id="generateBtn" class="generate-btn">
-            <span class="btn-text">Generate Responses</span>
-            <span class="btn-icon">➜</span>
-        </button>
+    <button id="generateBtn" class="generate-btn">
+      <span class="btn-text">Generate Responses</span>
+      <span class="btn-icon">➜</span>
+    </button>
 
-        <div id="loading" class="hidden">Generating responses...</div>
+    <div id="loading" class="hidden">Generating responses...</div>
 
-        <div id="answers" class="hidden">
-
-            <div class="answer-wrapper" data-model="A">
-                <div class="model-label" data-model-label></div>
-                <div class="answer-card"></div>
-            </div>
-
-            <div class="answer-wrapper" data-model="B">
-                <div class="model-label" data-model-label></div>
-                <div class="answer-card"></div>
-            </div>
-
-            <div class="answer-wrapper" data-model="C">
-                <div class="model-label" data-model-label></div>
-                <div class="answer-card"></div>
-            </div>
-
-            <div class="answer-wrapper" data-model="D">
-                <div class="model-label" data-model-label></div>
-                <div class="answer-card"></div>
-            </div>
-
-        </div>
-
-        <p id="selectionInstruction" class="instruction-note hidden">
-            <strong>Please select your preferred response</strong>, then proceed to the next question.
-        </p>
-
-        <button id="nextBtn" class="btn hidden">Next Question</button>
+    <div id="answers" class="hidden">
+      <div class="answer-wrapper">
+        <div class="model-label"></div>
+        <div class="answer-card"></div>
+      </div>
+      <div class="answer-wrapper">
+        <div class="model-label"></div>
+        <div class="answer-card"></div>
+      </div>
+      <div class="answer-wrapper">
+        <div class="model-label"></div>
+        <div class="answer-card"></div>
+      </div>
+      <div class="answer-wrapper">
+        <div class="model-label"></div>
+        <div class="answer-card"></div>
+      </div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <p id="selectionInstruction" class="instruction-note hidden">
+      Please select your <strong>preferred response</strong>, then proceed to the
+      <strong>next question</strong>.
+    </p>
+
+    <button id="nextBtn" class="btn hidden">Next Question</button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
