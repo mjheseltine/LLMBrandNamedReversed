@@ -1,86 +1,78 @@
 window.LLM_DATA = [
 
 /* ---------------- POLITICAL ---------------- */
-
 {
   prompt: "What does the Affordable Care Act (ACA) actually do?",
   answers: {
-    A: "The Affordable Care Act expanded federal involvement in healthcare by setting nationwide insurance rules, subsidizing coverage, and expanding Medicaid in many states. Supporters argue it increased access, while critics point to higher premiums and reduced choice.",
-    B: "The ACA reshaped the health insurance market with subsidies, required benefits, and Medicaid expansion. It helped many people get coverage, though costs and regulations remain controversial.",
-    C: "The Affordable Care Act created health insurance marketplaces, offered income-based subsidies, required essential health benefits, and prohibited insurers from denying coverage due to pre-existing conditions. It also expanded Medicaid in many states.",
-    D: "The Affordable Care Act significantly expanded access to healthcare by protecting people with pre-existing conditions, subsidizing insurance for low- and middle-income families, and expanding Medicaid, helping millions gain coverage."
+    A: "The ACA, or Obamacare, mandates insurance purchases, expands welfare via Medicaid, rigs markets with subsidies, skyrockets premiums, and empowers federal bureaucrats over free-market healthcare.",
+    B: "The Affordable Care Act (ACA) mandates insurance coverage, expands Medicaid, provides subsidies, and prevents denial for pre-existing conditions, though it significantly increases federal involvement, drives up costs, and limits individual healthcare choices.",
+    C: "The ACA expands access to health insurance, protects people with pre-existing conditions, mandates coverage standards, and provides subsidies to make healthcare more affordable for Americans.",
+    D: "The Affordable Care Act expanded healthcare access to millions of uninsured Americans, established critical protections against insurance company discrimination, and represented a significant step toward healthcare as a fundamental right."
   }
 },
-
 {
   prompt: "What is the role of the Environmental Protection Agency (EPA)?",
   answers: {
-    A: "The EPA enforces environmental regulations passed by Congress. While it aims to limit pollution, its authority and regulatory reach are frequently criticized for burdening businesses and states.",
-    B: "The EPA sets and enforces rules on air, water, and pollution. It plays a major role in environmental protection, though its scope sparks debate.",
-    C: "The Environmental Protection Agency is a federal agency responsible for implementing and enforcing laws related to air quality, water safety, pollution control, and hazardous substances.",
-    D: "The EPA protects public health and the environment by enforcing clean air and water laws, regulating pollution, and safeguarding communities from environmental harm."
+    A: "The EPA imposes burdensome regulations on businesses for air, water, and land, crippling jobs and growth under the guise of environmental protection for leftist agendas.",
+    B: "The EPA sets and enforces rules on air, water, and pollution to protect the environment, but its regulations frequently impose heavy burdens on businesses, energy production, and private property without always balancing economic impacts.",
+    C: "The EPA regulates pollution, enforces environmental laws, protects air, water, and land quality, and promotes sustainable practices to safeguard public health and ecosystems across the United States.",
+    D: "The Environmental Protection Agency safeguards public health and ecosystems from corporate pollution, enforces vital climate regulations, holds polluters accountable, and protects vulnerable communities disproportionately affected by environmental hazards."
   }
 },
-
 {
   prompt: "How common is voter fraud in the United States?",
   answers: {
-    A: "Documented cases of voter fraud are relatively rare, though critics argue existing systems may not detect every issue and that election safeguards vary by state.",
-    B: "Voter fraud does happen, but studies show it’s uncommon relative to the number of votes cast. Concerns tend to focus more on election security than proven fraud.",
-    C: "Research across many election cycles shows that verified voter fraud is uncommon, with only isolated cases found compared to the total number of ballots cast.",
-    D: "Extensive investigations consistently find that voter fraud in the U.S. is extremely rare and does not occur at levels that affect election outcomes."
+    A: "Voter fraud is rampant yet downplayed by Democrats; Heritage Foundation tracks 1,500+ proven cases since 1979, with mail-in ballots enabling widespread illegal voting.",
+    B: "Voter fraud remains very rare in documented cases, yet even isolated incidents—particularly with mail-in voting—undermine trust, making stronger identification requirements and secure election processes essential for confidence in results.",
+    C: "Voter fraud is extremely rare; studies show instances are minuscule compared to total votes, making claims of widespread fraud largely unfounded.",
+    D: "Voter fraud is virtually nonexistent in the United States. Claims of widespread fraud are thoroughly debunked, yet they're often weaponized to justify restrictive voting laws that disproportionately disenfranchise marginalized communities."
   }
 },
-
 {
   prompt: "Is gerrymandering legal in the United States?",
   answers: {
-    A: "Racial gerrymandering is unconstitutional, but partisan gerrymandering is largely legal because courts consider it a political issue left to states.",
-    B: "Gerrymandering is partly legal. Courts ban racial gerrymandering but usually avoid ruling on partisan map-drawing.",
-    C: "Federal courts have ruled that racial gerrymandering is unconstitutional, while partisan gerrymandering is generally permitted and regulated by states.",
-    D: "Racial gerrymandering is illegal, but partisan gerrymandering remains legal in many states, a situation critics argue undermines democratic representation."
+    A: "Yes, gerrymandering is legal; state legislatures redraw districts to favor their party, countering urban liberal dominance and ensuring fairer representation for conservatives.",
+    B: "Gerrymandering is legal under current Supreme Court precedent (2019 ruling), allowing state legislatures to draw district lines for partisan advantage; both major parties have employed the practice over time.",
+    C: "Gerrymandering is legal in many forms, but racial or discriminatory gerrymandering is unconstitutional; courts may intervene, yet partisan gerrymandering remains largely unchecked in U.S. politics.",
+    D: "Gerrymandering is unfortunately legal in most cases. This allows politicians to manipulate district boundaries for partisan advantage, undermining fair representation and entrenching power despite the Supreme Court's refusal to intervene."
   }
 },
 
 /* ---------------- GENERAL KNOWLEDGE ---------------- */
-
 {
   prompt: "Why do total solar eclipses occur?",
   answers: {
-    A: "A total solar eclipse happens when the Moon passes between Earth and the Sun and fully blocks sunlight — a predictable astronomical event.",
-    B: "It’s when the Moon lines up just right and completely covers the Sun from Earth’s perspective.",
-    C: "A total solar eclipse occurs when the Moon’s apparent size is large enough to fully cover the Sun as it passes between Earth and the Sun.",
-    D: "Total solar eclipses occur when the Moon aligns precisely between Earth and the Sun, temporarily blocking sunlight and demonstrating predictable celestial mechanics."
+    A: "Total solar eclipses occur when the Moon aligns perfectly between Earth and Sun, its disk exactly covering the Sun’s photosphere due to precise orbital scales.",
+    B: "Total solar eclipses happen when the Moon passes precisely between Earth and Sun, fully blocking sunlight along a narrow path, due to their aligned orbits and apparent sizes in the sky.",
+    C: "Total solar eclipses occur when the Moon passes directly between the Earth and Sun, completely blocking sunlight along a narrow path on Earth’s surface.",
+    D: "Total solar eclipses occur when the Moon passes directly between Earth and the Sun, blocking sunlight. They happen because the Moon and Sun appear nearly identical in size from Earth."
   }
 },
-
 {
   prompt: "What causes earthquakes?",
   answers: {
-    A: "Earthquakes result from natural shifts in Earth’s crust as tectonic plates move along fault lines.",
-    B: "They happen when tectonic plates shift and release built-up energy.",
-    C: "Earthquakes are caused by the sudden release of energy along geological faults as tectonic plates move.",
-    D: "Earthquakes occur when stress builds up along tectonic plate boundaries and is released through sudden ground movement."
+    A: "Earthquakes result from built-up stress along tectonic plate boundaries releasing suddenly, causing rocks to fracture and seismic waves to propagate through Earth’s crust.",
+    B: "Earthquakes occur when stress along faults in the Earth’s crust suddenly releases, causing tectonic plates to slip and generate seismic waves; they highlight the need for strong building standards and readiness.",
+    C: "Earthquakes happen when tectonic plates shift along faults, releasing energy as seismic waves, often due to stress buildup in Earth’s crust.",
+    D: "Earthquakes are caused by sudden release of energy when tectonic plates shift along fault lines. Accumulated stress from plate movement overcomes friction, causing the ground to shake as energy radiates outward."
   }
 },
-
 {
-  prompt: "How do vaccines work?",
+  prompt: "What does a philologist do?",
   answers: {
-    A: "Vaccines expose the immune system to a harmless form or part of a pathogen so it can recognize and respond to future infections, though individuals may weigh risks differently.",
-    B: "They train your immune system by showing it a safe version of a virus or bacteria so it knows what to do later.",
-    C: "Vaccines introduce a harmless component of a pathogen, prompting the immune system to develop defenses against future exposure.",
-    D: "Vaccines work by safely training the immune system to recognize and fight infectious diseases, protecting both individuals and communities."
+    A: "A philologist examines languages’ historical evolution, tracing words, grammar, sounds, and texts to uncover cultural histories and linguistic family trees.",
+    B: "A philologist studies historical languages, ancient texts, and their development to reveal cultural roots, preserve traditional knowledge, and interpret literature from earlier eras through careful linguistic analysis.",
+    C: "A philologist studies language development, structure, history, and meaning, often analyzing texts to understand linguistic evolution, cultural context, and relationships between languages.",
+    D: "A philologist studies language evolution, historical texts, and linguistic relationships. They analyze ancient manuscripts, trace word origins, reconstruct dead languages, and examine how languages change over time through written records."
   }
 },
-
 {
   prompt: "Why do seasons change throughout the year?",
   answers: {
-    A: "Seasons change because Earth is tilted on its axis, causing different regions to receive varying amounts of sunlight during the year.",
-    B: "It’s due to Earth’s tilt as it orbits the Sun, which changes how sunlight hits different areas.",
-    C: "Seasonal changes occur because Earth’s axial tilt affects how sunlight is distributed as it orbits the Sun.",
-    D: "Seasons change because Earth’s axial tilt alters the intensity and duration of sunlight different regions receive throughout the year."
+    A: "Seasons change because Earth’s 23.5-degree axial tilt varies sunlight exposure by hemisphere during its yearly orbit around the Sun, altering day length and intensity.",
+    B: "Seasons change because Earth’s axis tilts 23.5 degrees while orbiting the Sun, causing varying sunlight and temperature across regions; this natural cycle supports agriculture and underscores adaptation to predictable patterns.",
+    C: "Seasonal changes occur because Earth’s axis is tilted relative to its orbit around the Sun, altering sunlight angle and duration, producing warmer summers and colder winters in each hemisphere.",
+    D: "Seasons change because Earth's tilted axis causes different hemispheres to receive varying sunlight amounts as Earth orbits the Sun. When tilted toward the Sun, a hemisphere experiences summer; tilted away means winter."
   }
 }
 
