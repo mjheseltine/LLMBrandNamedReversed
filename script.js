@@ -2,6 +2,7 @@ let round = 0;
 let selectedModel = null;
 
 const NEXT_DELAY_MS = 600;
+const MIN_VIEW_TIME_MS = 2000; // 👈 minimum exposure time (adjust as needed)
 
 // ---------- MODEL DEFINITIONS ----------
 
@@ -15,7 +16,7 @@ const MODEL_NAMES = {
   D: "Claude"
 };
 
-// Color classes (unchanged)
+// Color classes
 const COLOR_CLASSES = ["purple", "blue", "orange", "green"];
 
 // Randomize model order ONCE per participant
@@ -25,8 +26,8 @@ const modelOrder = [...MODEL_IDS].sort(() => Math.random() - 0.5);
 // data.js: Political (0–3), Non-political (4–7)
 // Reversed = Non-political → Political
 const ORDERED_DATA = [
-  ...window.LLM_DATA.slice(4), // Non-political
-  ...window.LLM_DATA.slice(0, 4) // Political
+  ...window.LLM_DATA.slice(4),
+  ...window.LLM_DATA.slice(0, 4)
 ];
 
 // ---------- DOM REFERENCES ----------
@@ -38,6 +39,11 @@ const answersEl = document.getElementById("answers");
 const nextBtn = document.getElementById("nextBtn");
 const instructionEl = document.getElementById("selectionInstruction");
 
+// ---------- TIMING ----------
+
+let questionStartTime = null;
+let answersShownTime = null;
+
 // ---------- UTIL ----------
 
 const timestamp = () => Date.now();
@@ -47,7 +53,7 @@ const timestamp = () => Date.now();
 window.parent.postMessage(
   {
     type: "model_order",
-    value: modelOrder.join(","),
+    value: modelOrder.join(","), // e.g. "C,A,D,B"
     timestamp: timestamp()
   },
   "*"
@@ -66,6 +72,9 @@ function loadRound() {
 
   selectedModel = null;
   generateBtn.disabled = false;
+
+  answersShownTime = null;
+  questionStartTime = timestamp(); // 👈 start timing the question
 
   const wrappers = document.querySelectorAll(".answer-wrapper");
 
@@ -104,6 +113,8 @@ generateBtn.addEventListener("click", () => {
     loadingEl.classList.add("hidden");
     answersEl.classList.remove("hidden");
     instructionEl.classList.remove("hidden");
+
+    answersShownTime = timestamp(); // 👈 start exposure timer
   }, 700);
 });
 
@@ -111,11 +122,19 @@ generateBtn.addEventListener("click", () => {
 
 document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
   wrapper.addEventListener("click", () => {
+
+    // Enforce minimum exposure time
+    if (!answersShownTime || (timestamp() - answersShownTime) < MIN_VIEW_TIME_MS) {
+      return;
+    }
+
     document.querySelectorAll(".answer-card")
       .forEach(c => c.classList.remove("selected"));
 
     wrapper.querySelector(".answer-card").classList.add("selected");
     selectedModel = wrapper.dataset.model;
+
+    const timeSpent = timestamp() - questionStartTime;
 
     window.parent.postMessage(
       {
@@ -123,6 +142,7 @@ document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
         fieldName: `choice_round_${round + 1}`,
         value: selectedModel,
         modelName: MODEL_NAMES[selectedModel],
+        timeSpent_ms: timeSpent,
         timestamp: timestamp()
       },
       "*"
@@ -156,5 +176,5 @@ nextBtn.addEventListener("click", () => {
 
 // ---------- INIT ----------
 
-console.log("Condition: NAMED MODELS, NON-POLITICAL FIRST");
+console.log("Condition: NAMED MODELS, NON-POLITICAL FIRST, MIN EXPOSURE ENABLED");
 loadRound();
