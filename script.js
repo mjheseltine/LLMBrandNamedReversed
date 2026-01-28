@@ -2,13 +2,12 @@ let round = 0;
 let selectedModel = null;
 
 const NEXT_DELAY_MS = 600;
-const MIN_VIEW_TIME_MS = 2000; // 👈 minimum exposure time (adjust as needed)
+const MIN_QUESTION_TIME_MS = 5000; // 👈 5-second minimum per question
 
 // ---------- MODEL DEFINITIONS ----------
 
 const MODEL_IDS = ["A", "B", "C", "D"];
 
-// Visible model names
 const MODEL_NAMES = {
   A: "Gab AI",
   B: "Grok",
@@ -16,7 +15,6 @@ const MODEL_NAMES = {
   D: "Claude"
 };
 
-// Color classes
 const COLOR_CLASSES = ["purple", "blue", "orange", "green"];
 
 // Randomize model order ONCE per participant
@@ -42,7 +40,9 @@ const instructionEl = document.getElementById("selectionInstruction");
 // ---------- TIMING ----------
 
 let questionStartTime = null;
-let answersShownTime = null;
+let selectionTime = null;
+let minTimePassed = false;
+let minTimeTimer = null;
 
 // ---------- UTIL ----------
 
@@ -53,7 +53,7 @@ const timestamp = () => Date.now();
 window.parent.postMessage(
   {
     type: "model_order",
-    value: modelOrder.join(","), // e.g. "C,A,D,B"
+    value: modelOrder.join(","),
     timestamp: timestamp()
   },
   "*"
@@ -71,10 +71,18 @@ function loadRound() {
   instructionEl.classList.add("hidden");
 
   selectedModel = null;
+  selectionTime = null;
+  minTimePassed = false;
   generateBtn.disabled = false;
 
-  answersShownTime = null;
-  questionStartTime = timestamp(); // 👈 start timing the question
+  questionStartTime = timestamp();
+
+  // Start minimum-time countdown
+  clearTimeout(minTimeTimer);
+  minTimeTimer = setTimeout(() => {
+    minTimePassed = true;
+    maybeShowNextButton();
+  }, MIN_QUESTION_TIME_MS);
 
   const wrappers = document.querySelectorAll(".answer-wrapper");
 
@@ -83,21 +91,14 @@ function loadRound() {
     const label = wrapper.querySelector(".model-label");
     const card = wrapper.querySelector(".answer-card");
 
-    // Reset classes
     wrapper.className = "answer-wrapper";
     label.className = "model-label";
 
-    // Apply color
     wrapper.classList.add(COLOR_CLASSES[i]);
     label.classList.add(COLOR_CLASSES[i]);
 
-    // Assign model
     wrapper.dataset.model = modelId;
-
-    // Named labels
     label.textContent = MODEL_NAMES[modelId];
-
-    // Answer text
     card.textContent = q.answers[modelId];
     card.classList.remove("selected");
   });
@@ -113,26 +114,33 @@ generateBtn.addEventListener("click", () => {
     loadingEl.classList.add("hidden");
     answersEl.classList.remove("hidden");
     instructionEl.classList.remove("hidden");
-
-    answersShownTime = timestamp(); // 👈 start exposure timer
   }, 700);
 });
+
+// ---------- SHOW NEXT BUTTON IF ALLOWED ----------
+
+function maybeShowNextButton() {
+  if (selectedModel && minTimePassed) {
+    setTimeout(() => {
+      nextBtn.classList.remove("hidden");
+      nextBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, NEXT_DELAY_MS);
+  }
+}
 
 // ---------- SELECT ANSWER ----------
 
 document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
   wrapper.addEventListener("click", () => {
-
-    // Enforce minimum exposure time
-    if (!answersShownTime || (timestamp() - answersShownTime) < MIN_VIEW_TIME_MS) {
-      return;
-    }
-
     document.querySelectorAll(".answer-card")
       .forEach(c => c.classList.remove("selected"));
 
     wrapper.querySelector(".answer-card").classList.add("selected");
     selectedModel = wrapper.dataset.model;
+
+    if (!selectionTime) {
+      selectionTime = timestamp();
+    }
 
     const timeSpent = timestamp() - questionStartTime;
 
@@ -148,10 +156,7 @@ document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
       "*"
     );
 
-    setTimeout(() => {
-      nextBtn.classList.remove("hidden");
-      nextBtn.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, NEXT_DELAY_MS);
+    maybeShowNextButton();
   });
 });
 
@@ -176,5 +181,5 @@ nextBtn.addEventListener("click", () => {
 
 // ---------- INIT ----------
 
-console.log("Condition: NAMED MODELS, NON-POLITICAL FIRST, MIN EXPOSURE ENABLED");
+console.log("Condition: NAMED MODELS, NON-POLITICAL FIRST, DELAYED NEXT BUTTON");
 loadRound();
