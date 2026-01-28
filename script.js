@@ -7,7 +7,7 @@ const NEXT_DELAY_MS = 600;
 
 const MODEL_IDS = ["A", "B", "C", "D"];
 
-// Visible model names
+// VISIBLE model names (ONLY difference from unnamed version)
 const MODEL_NAMES = {
   A: "Gab AI",
   B: "Grok",
@@ -15,19 +15,15 @@ const MODEL_NAMES = {
   D: "Claude"
 };
 
-// Color classes (unchanged)
+// Color classes stay EXACTLY the same
 const COLOR_CLASSES = ["purple", "blue", "orange", "green"];
 
 // Randomize model order ONCE per participant
 const modelOrder = [...MODEL_IDS].sort(() => Math.random() - 0.5);
 
-// ---------- REVERSED QUESTION ORDER ----------
-// data.js: Political (0–3), Non-political (4–7)
-// Reversed = Non-political → Political
-const ORDERED_DATA = [
-  ...window.LLM_DATA.slice(4), // Non-political
-  ...window.LLM_DATA.slice(0, 4) // Political
-];
+// ---------- QUESTION ORDER ----------
+// data.js = Political → General
+const ORDERED_DATA = [...window.LLM_DATA];
 
 // ---------- DOM REFERENCES ----------
 
@@ -78,17 +74,17 @@ function loadRound() {
     wrapper.className = "answer-wrapper";
     label.className = "model-label";
 
-    // Apply color
+    // Apply color (unchanged)
     wrapper.classList.add(COLOR_CLASSES[i]);
     label.classList.add(COLOR_CLASSES[i]);
 
-    // Assign model
+    // Assign model identity
     wrapper.dataset.model = modelId;
 
-    // Named labels
+    // 🔑 ONLY CHANGE FROM UNNAMED VERSION
     label.textContent = MODEL_NAMES[modelId];
 
-    // Answer text
+    // Populate answer text
     card.textContent = q.answers[modelId];
     card.classList.remove("selected");
   });
@@ -115,6 +111,7 @@ document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
       .forEach(c => c.classList.remove("selected"));
 
     wrapper.querySelector(".answer-card").classList.add("selected");
+
     selectedModel = wrapper.dataset.model;
 
     window.parent.postMessage(
@@ -156,5 +153,5 @@ nextBtn.addEventListener("click", () => {
 
 // ---------- INIT ----------
 
-console.log("Condition: NAMED MODELS, NON-POLITICAL FIRST");
+console.log("Condition: NAMED MODELS (USING UNNAMED ENGINE)");
 loadRound();
