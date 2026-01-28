@@ -1,51 +1,118 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LLM Brand Study</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #eef1f6;
+  margin: 0;
+  padding: 20px;
+}
 
-<body>
-  <div id="app">
-    <h2 id="prompt"></h2>
+#app {
+  max-width: 780px;
+  margin: auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
 
-    <button id="generateBtn" class="generate-btn">
-      <span class="btn-text">Generate Responses</span>
-      <span class="btn-icon">➜</span>
-    </button>
+h2 {
+  margin-top: 0;
+}
 
-    <div id="loading" class="hidden">Generating responses...</div>
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #1f6feb;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
 
-    <div id="answers" class="hidden">
-      <div class="answer-wrapper">
-        <div class="model-label"></div>
-        <div class="answer-card"></div>
-      </div>
-      <div class="answer-wrapper">
-        <div class="model-label"></div>
-        <div class="answer-card"></div>
-      </div>
-      <div class="answer-wrapper">
-        <div class="model-label"></div>
-        <div class="answer-card"></div>
-      </div>
-      <div class="answer-wrapper">
-        <div class="model-label"></div>
-        <div class="answer-card"></div>
-      </div>
-    </div>
+.generate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #1f6feb, #1859c9);
+  color: white;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
 
-    <p id="selectionInstruction" class="instruction-note hidden">
-      Please select your <strong>preferred response</strong>, then proceed to the
-      <strong>next question</strong>.
-    </p>
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
-    <button id="nextBtn" class="btn hidden">Next Question</button>
-  </div>
+.hidden {
+  display: none;
+}
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+.answer-wrapper {
+  padding: 15px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid #e2e4ea;
+}
+
+.answer-card.selected {
+  border-left: 4px solid #1f6feb;
+  padding-left: 12px;
+}
+
+.model-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.instruction-note {
+  margin-top: 25px;
+  padding: 14px;
+  text-align: center;
+  background: #eaf2ff;
+  border-radius: 10px;
+}
+
+/* ---------- Color-shaded model cards ---------- */
+
+/* Purple */
+.answer-wrapper.purple {
+  background: #f2ecff;
+  border-left: 4px solid #7b3fe4;
+}
+
+/* Blue */
+.answer-wrapper.blue {
+  background: #eef4ff;
+  border-left: 4px solid #1f6feb;
+}
+
+/* Orange */
+.answer-wrapper.orange {
+  background: #fff1e6;
+  border-left: 4px solid #ff8c42;
+}
+
+/* Green */
+.answer-wrapper.green {
+  background: #ecf9f1;
+  border-left: 4px solid #4ac47d;
+}
+
+/* Keep model labels neutral */
+.model-label {
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Selection highlight still visible */
+.answer-card.selected {
+  border-left: 4px solid #000;
+  padding-left: 12px;
+}
