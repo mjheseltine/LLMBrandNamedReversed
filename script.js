@@ -9,10 +9,10 @@ const MIN_QUESTION_TIME_MS = 5000; // 👈 5-second minimum per question
 const MODEL_IDS = ["A", "B", "C", "D"];
 
 const MODEL_NAMES = {
-  A: "Gab AI",
-  B: "Grok",
-  C: "GPT",
-  D: "Claude"
+  A: "Gab AI Arya",
+  B: "xAI Grok",
+  C: "OpenAI GPT",
+  D: "Anthropic Claude"
 };
 
 const COLOR_CLASSES = ["purple", "blue", "orange", "green"];
